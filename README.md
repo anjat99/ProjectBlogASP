@@ -6,6 +6,8 @@
 
 A simple blog content management system built using C#, ASP.NET CORE, ENTITY FRAMEWORK, FluentValidator, JWT for authorization .
 
+![db_blog_diagram](https://user-images.githubusercontent.com/72461048/122456811-41cac900-cfae-11eb-8cfb-362eb738953f.png)
+
 ## Features
 <ul>
     <li>Unauthorized users (guests) can see all blogs on the site written by authorized users or read details about them, ie. to read each separately </li>
