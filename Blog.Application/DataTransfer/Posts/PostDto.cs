@@ -11,7 +11,6 @@ namespace Blog.Application.DataTransfer.Posts
     {
         public int Id { get; set; }
         public IFormFile Cover { get; set; }
-        //public string CoverImage { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public int? CategoryId { get; set; }

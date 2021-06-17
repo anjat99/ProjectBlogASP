@@ -35,9 +35,8 @@ namespace Blog.Implementation.Commands.CommentVotes
         public void Execute(CommentVoteDto request)
         {
             _validator.ValidateAndThrow(request);
-            var v = _context.Votes.Where(x => x.Comment.Id == request.CommentId && x.UserId == request.UserId).FirstOrDefault();
-
-            if (v != null && v.Mark > 0 && v.Mark <= 5)
+            request.UserId = _actor.Id;
+            if (request.Mark != null && request.Mark > 0 && request.Mark <= 5)
             {
                 var vote = _mapper.Map<Vote>(request);
 

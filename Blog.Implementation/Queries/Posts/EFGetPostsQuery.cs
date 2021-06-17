@@ -38,10 +38,6 @@ namespace Blog.Implementation.Queries.Posts
                 query = query.Where(x => x.Title.ToLower().Contains(search.Keyword.ToLower()) || x.Description.ToLower().Contains(search.Keyword.ToLower()));
             }
 
-            //if (search.CategoryIds.Any())
-            //{
-            //    query = query.Where(x => search.CategoryIds.Contains(x.CategoryId));
-            //}
 
             if (search.CategoryId.HasValue)
             {

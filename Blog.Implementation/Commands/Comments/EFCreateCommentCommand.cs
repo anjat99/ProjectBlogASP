@@ -36,8 +36,14 @@ namespace Blog.Implementation.Commands.Comments
             _validator.ValidateAndThrow(request);
 
             request.UserId = _actor.Id;
+           
 
             var comment = _mapper.Map<Comment>(request);
+
+            comment.CommentPosts.Add(new PostComment
+            {
+                PostId = request.PostId.Value
+            });
 
             _context.Comments.Add(comment);
             _context.SaveChanges();

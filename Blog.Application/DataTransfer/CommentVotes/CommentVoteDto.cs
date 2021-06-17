@@ -6,8 +6,8 @@ namespace Blog.Application.DataTransfer.CommentVotes
 {
     public class CommentVoteDto
     {
-        public int Mark { get; set; }
-        public int UserId { get; set; }
-        public int CommentId { get; set; }
+        public int? Mark { get; set; }
+        public int? UserId { get; set; }
+        public int? CommentId { get; set; }
     }
 }
