@@ -16,12 +16,10 @@ namespace Blog.Implementation.Profiles.Posts
             CreateMap<Post, ReadPostDto>()
                 .ForMember(x => x.CategoryName, opt => opt.MapFrom(x => x.Category.Name))
                 .ForMember(x => x.Username, opt => opt.MapFrom(x => x.User.Username))
-                .ForMember(dto => dto.Comments, opt => opt.MapFrom(x => x.PostComments.Select(y => new CommentOfPostDto
-                { 
-                    Message = y.Comment.Message,
-                    User = y.Comment.User.Username
-            }).ToList()));
-            CreateMap<ReadPostDto, Post>().ForMember(dto => dto.PostComments, opt => opt.Ignore());
+                .ForMember(dto => dto.Comments, opt => opt.MapFrom(x => x.PostComments.Select(x => x.Comment.Message).ToList()));
+               
+            CreateMap<ReadPostDto, Post>()
+                ;
         }
     }
 }
