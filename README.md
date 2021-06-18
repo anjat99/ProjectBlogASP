@@ -6,7 +6,7 @@
 
 A simple blog content management system built using C#, ASP.NET CORE, ENTITY FRAMEWORK, FluentValidator, JWT for authorization .
 
-![db_blog_diagram](https://user-images.githubusercontent.com/72461048/122456811-41cac900-cfae-11eb-8cfb-362eb738953f.png)
+![diagram_database_blog](https://user-images.githubusercontent.com/72461048/122610313-b28de600-d07f-11eb-9a0e-ec5184618467.png)
 
 ## Features
 <ul>
