@@ -63,7 +63,8 @@ namespace Blog.Api.Core
             services.AddTransient<ICreatePostCommand, EFCreatePostCommand>();
             services.AddTransient<IDeletePostCommand, EFDeletePostCommand>();
 
-            services.AddTransient<IGetPostsQuery, EFGetPostsQuery>();
+            //services.AddTransient<IGetPostsQuery, EFGetPostsQuery>();
+            services.AddTransient<IGetAllPostsQuery, EFGetAllPostsQuery>();
             services.AddTransient<IGetPostQuery, EFGetPostQuery>();
 
             services.AddTransient<CreatePostValidator>();

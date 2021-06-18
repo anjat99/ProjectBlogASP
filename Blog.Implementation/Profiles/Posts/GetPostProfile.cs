@@ -11,7 +11,7 @@ namespace Blog.Implementation.Profiles.Posts
     {
         public GetPostProfile()
         {
-            CreateMap<Post, ReadPostDto>();
+            CreateMap<Post, ReadPostDto>().ForMember(x => x.CategoryName, opt => opt.MapFrom(x => x.Category.Name)).ForMember(x => x.Username, opt => opt.MapFrom(x => x.User.Username));
             CreateMap<ReadPostDto, Post>();
         }
     }

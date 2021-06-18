@@ -22,11 +22,11 @@ namespace Blog.DataAccess.Configurations
             builder.Property(x => x.Description)
                 .IsRequired();
 
-            builder.Property(x => x.IsPublished)
-                .IsRequired().HasDefaultValue(false);
+            //builder.Property(x => x.IsPublished)
+            //    .IsRequired().HasDefaultValue(false);
 
-            builder.Property(x => x.PublishedAt)
-                .IsRequired();
+            //builder.Property(x => x.PublishedAt)
+            //    .IsRequired();
 
             //relationships
             builder.HasMany(u => u.PostComments)

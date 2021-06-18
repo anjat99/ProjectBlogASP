@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Blog.Application.DataTransfer.Comments;
 using Blog.Application.DataTransfer.Posts;
 using Blog.Application.Exceptions;
 using Blog.Application.Queries.Posts;
@@ -27,23 +28,25 @@ namespace Blog.Implementation.Queries.Posts
 
         public string Name => "Single Post";
 
-        public ReadPostDto Execute(int search)
+        public ReadPostDto Execute(int id)
         {
-            var p = _context.Posts.Find(search);
+            var post = _context.Posts
+                .Include(c => c.Category)
+                .Include(u => u.User)
+                .Include(p => p.PostComments)
+                .ThenInclude(pc => pc.Comment)
+                .ThenInclude(c => c.CommentVotes)
+                .FirstOrDefault(x => x.Id == id);
 
-            if (p == null)
+           
+            if (post == null)
             {
-                throw new EntityNotFoundException(search, typeof(Post));
+                throw new EntityNotFoundException(id, typeof(Post));
             }
 
-            var post = _context.Posts
-                .Include(u => u.User)
-                .Include(c => c.Category)
-                .Include(x => x.User)
-                .Where(x => x.Id == search)
-                .FirstOrDefault();
 
-            var result = _mapper.Map<ReadPostDto>(post);
+
+            var result = _mapper.Map<ReadPostDto>(post); 
 
             return result;
         }

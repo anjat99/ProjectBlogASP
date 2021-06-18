@@ -53,10 +53,12 @@ namespace Blog.Implementation.Commands.Posts
             }
 
 
-            var result = _context.Posts.Include(x => x.User).Include(x => x.Category).FirstOrDefault(x => x.Id == request.Id);
+            //var result = _context.Posts.Include(x => x.User).Include(x => x.Category).FirstOrDefault(x => x.Id == request.Id);
+            var result = _context.Posts.Where(x => x.Id == request.Id).FirstOrDefault();
+            result.UserId = _actor.Id;
 
             var  newFileName = CoverImage.UpdateCoverImage(request.Cover, result.Cover);
-            result.UserId = _actor.Id;
+          
             _mapper.Map(request, result);
             result.Cover = newFileName; 
 

@@ -31,7 +31,7 @@ namespace Blog.Api.Controllers
 
         // GET: api/<PostsController>
         [HttpGet]
-        public IActionResult Get([FromQuery] PostSearch search, [FromServices] IGetPostsQuery query)
+        public IActionResult Get([FromQuery] PostSearch search, [FromServices] IGetAllPostsQuery query)
         {
             return Ok(_executor.ExecuteQuery(query, search));
         }

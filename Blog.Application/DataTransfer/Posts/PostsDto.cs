@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Blog.Application.DataTransfer.Posts
 {
-    public class ReadPostDto
+    public class PostsDto
     {
         public int Id { get; set; }
         public string Cover { get; set; }
@@ -15,9 +15,5 @@ namespace Blog.Application.DataTransfer.Posts
         public DateTime CreatedAt { get; set; }
         public string CategoryName { get; set; }
         public string Username { get; set; }
-
-
-        //public IEnumerable<string> CommentsOfPost { get; set; } = new List<string>();
-        //public ICollection<LikePostDto> Likes { get; set; } = new List<LikePostDto>();
     }
 }

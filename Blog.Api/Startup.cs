@@ -62,7 +62,8 @@ namespace Blog.Api
             //automapper
             services.AddAutoMapper(typeof(EFGetCategoriesQuery).Assembly);
             services.AddAutoMapper(typeof(EFGetCategoryQuery).Assembly);
-            services.AddAutoMapper(typeof(EFGetPostsQuery).Assembly);
+            //services.AddAutoMapper(typeof(EFGetPostsQuery).Assembly);
+            services.AddAutoMapper(typeof(EFGetAllPostsQuery).Assembly);
             services.AddAutoMapper(typeof(EFGetPostQuery).Assembly);
             services.AddAutoMapper(typeof(EFGetCommentQuery).Assembly);
             services.AddAutoMapper(typeof(EFGetAuditLogsQuery).Assembly);
@@ -70,7 +71,8 @@ namespace Blog.Api
             services.AddAutoMapper(typeof(EFGetUserQuery).Assembly);
 
 
-            //services.AddAutoMapper(typeof(QueryableExtensions).Assembly);
+            services.AddAutoMapper(typeof(QueryableExtensions).Assembly);
+            services.AddAutoMapper(this.GetType().Assembly);
 
             //SWAGGER
             services.AddSwaggerGen(c =>
