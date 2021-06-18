@@ -44,15 +44,21 @@ namespace Blog.Implementation.Queries.AuditLogs
                 query = query.Where(x => x.UseCaseName.ToLower().Contains(search.UseCaseName.ToLower()));
             }
 
-            if (!string.IsNullOrEmpty(search.DateFrom) || !string.IsNullOrWhiteSpace(search.DateFrom) ||
-               !string.IsNullOrEmpty(search.DateTo) || !string.IsNullOrWhiteSpace(search.DateTo))
+            if (!string.IsNullOrEmpty(search.DateFrom) || !string.IsNullOrWhiteSpace(search.DateFrom) )
             {
 
                 DateTime startDate = Convert.ToDateTime(search.DateFrom);
-                DateTime endDate = Convert.ToDateTime(search.DateTo);
+               
 
-                query = query.Where(x => x.Date >= startDate && x.Date <= endDate);
+                query = query.Where(x => x.Date >= startDate);
             }
+
+            if (!string.IsNullOrEmpty(search.DateTo) || !string.IsNullOrWhiteSpace(search.DateTo))
+            {
+                DateTime endDate = Convert.ToDateTime(search.DateTo);
+                query = query.Where(x => x.Date <= endDate);
+            }
+
 
             return query.Paged<AuditLogDto, AuditLog>(search, _mapper);
             
