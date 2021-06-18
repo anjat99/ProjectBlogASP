@@ -49,7 +49,7 @@ namespace Blog.Api.Controllers
 
         // PUT api/<UsersController>/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromForm] UserDto dto, [FromServices] IUpdateUserCommand command)
+        public IActionResult Put(int id, [FromBody] UserDto dto, [FromServices] IUpdateUserCommand command)
         {
             dto.Id = id;
             _executor.ExecuteCommand(command, dto);

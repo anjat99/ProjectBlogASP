@@ -15,7 +15,7 @@ namespace Blog.Implementation.Profiles.Users
             CreateMap<User, UserDto>()
                 .ForMember(dto => dto.UserUseCases, opt => opt.MapFrom(x => x.UserUseCases.Select(y => y.UseCaseId).ToList()));
 
-            CreateMap<UserDto, User>();
+            CreateMap<UserDto, User>().ForMember(dto => dto.UserUseCases, opt => opt.Ignore()); ;
         }
     }
 }

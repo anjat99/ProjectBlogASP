@@ -33,16 +33,17 @@ namespace Blog.Implementation.Commands.Users
 
         public void Execute(UserDto request)
         {
-            _validator.ValidateAndThrow(request);
+           _validator.ValidateAndThrow(request);
 
-            var findUser = _context.Users.Find(request.Id);
+            //  var findUser = _context.Users.Find(request.Id);
+            var user = _context.Users
+             .Include(x => x.UserUseCases)
+             .FirstOrDefault(x => x.Id == request.Id);
 
-            if (findUser == null)
+            if (user == null)
             {
                 throw new EntityNotFoundException(request.Id, typeof(User));
             }
-
-            var user = _context.Users.Include(x => x.UserUseCases).Where(x => x.Id == request.Id).First();
 
             //_mapper.Map(request, user);
 

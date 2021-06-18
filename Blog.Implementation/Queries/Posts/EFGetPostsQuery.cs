@@ -55,7 +55,7 @@ namespace Blog.Implementation.Queries.Posts
             }
 
 
-            return query.Paged<PostDto, Post>(search, _mapper);
+        return query.Paged<PostDto, Post>(search, _mapper); //nije radilo
         }
     }
 }
