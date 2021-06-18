@@ -15,5 +15,6 @@ namespace Blog.Application.DataTransfer.Posts
         public DateTime CreatedAt { get; set; }
         public string CategoryName { get; set; }
         public string Username { get; set; }
+
     }
 }
