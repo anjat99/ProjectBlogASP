@@ -19,7 +19,6 @@ namespace Blog.Application.DataTransfer.Posts
 
         public IEnumerable<string> Comments { get; set; } = new List<string>();
 
-        //public IEnumerable<string> CommentsOfPost { get; set; } = new List<string>();
         //public ICollection<LikePostDto> Likes { get; set; } = new List<LikePostDto>();
     }
 }

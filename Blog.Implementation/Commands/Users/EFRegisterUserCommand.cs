@@ -17,7 +17,8 @@ namespace Blog.Implementation.Commands.Users
         private readonly BlogContext _context;
         private readonly RegisterUserValidator _validator;
         private readonly IEmailSender _sender;
-        private readonly IEnumerable<int> useCasesForUser = new List<int> { 4,5,6,7,8,9,11,12,13,14,15,16,17,26 };
+        private readonly IEnumerable<int> useCasesForUser = new List<int> { 4,5,7,8,9,11,12,13,14,15,16,17,26 };
+        //private readonly IEnumerable<int> useCasesForUser = new List<int> { 4,5,6,7,8,9,11,12,13,14,15,16,17,26 };
         //private readonly IEnumerable<int> useCasesForUser = new List<int> { 1,2,3,4,5,7,8,9,10,11,12,13,14,15,16,17,26 };
         public EFRegisterUserCommand(BlogContext context, RegisterUserValidator validator, IEmailSender sender)
         {

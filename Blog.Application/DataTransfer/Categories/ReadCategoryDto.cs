@@ -9,6 +9,7 @@ namespace Blog.Application.DataTransfer.Categories
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public IEnumerable<PostsOfCategoryDto> Posts { get; set; } = new List<PostsOfCategoryDto>();
         //public ICollection<PostDto> Posts { get; set; } = new List<PostDto>();
     }
 }

@@ -29,7 +29,8 @@ namespace Blog.Implementation.Queries.Categories
 
         public ReadCategoryDto Execute(int search)
         {
-            var cat = _context.Categories.Find(search);
+            //var cat = _context.Categories.Find(search);
+            var cat = _context.Categories.Include(x => x.Posts).ThenInclude(x => x.User).FirstOrDefault(x => x.Id == search);
 
             if (cat == null)
             {

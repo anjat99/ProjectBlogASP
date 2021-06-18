@@ -37,7 +37,6 @@ namespace Blog.Implementation.Commands.Posts
 
             var post = _mapper.Map<Post>(request);
             post.Cover = newFileName;
-           // post.IsPublished = false;
 
             _context.Posts.Add(post);
             _context.SaveChanges();

@@ -36,6 +36,7 @@ namespace Blog.Implementation.Commands.CommentVotes
         {
             _validator.ValidateAndThrow(request);
             var v = _context.Votes.Where(x => x.Comment.Id == request.CommentId).FirstOrDefault();
+            request.UserId = _actor.Id;
 
             if (v != null && v.Mark > 0 && v.Mark <= 5)
             {
@@ -44,6 +45,8 @@ namespace Blog.Implementation.Commands.CommentVotes
                 _context.Votes.Add(vote);
                 _context.SaveChanges();
             }
+
+          
         }
     }
 }

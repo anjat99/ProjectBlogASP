@@ -10,6 +10,6 @@ namespace Blog.Application.DataTransfer.CommentVotes
         public int Id { get; set; }
         public int Mark { get; set; }
         public int CommentId { get; set; }
-        //public UserDto User { get; set; }
+        public int UserId { get; set; }
     }
 }

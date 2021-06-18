@@ -33,11 +33,6 @@ namespace Blog.Implementation.Commands.Categories
         {
             _validator.ValidateAndThrow(request);
 
-            //var category = new Category
-            //{
-            //     Name = request.Name
-            //};
-
             var category = _mapper.Map<Category>(request);
 
             _context.Categories.Add(category);

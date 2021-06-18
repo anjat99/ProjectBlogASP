@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Blog.Application.DataTransfer.Categories;
+using Blog.Application.DataTransfer.Posts;
 using Blog.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -12,20 +13,19 @@ namespace Blog.Implementation.Profiles.Categories
     {
         public GetCategoryProfile()
         {
-            CreateMap<Category, ReadCategoryDto>();
-                //.ForMember(
-                //dto => dto.Posts,
-                //ent => ent.MapFrom(x =>
-                //x.Posts.ToList()
-                //));
+            CreateMap<Category, ReadCategoryDto>()
+                .ForMember(dto => dto.Posts, opt => opt.MapFrom(x => x.Posts.Select(x => new PostsOfCategoryDto
+                {
+                    Id = x.Id,
+                    Cover = x.Cover,
+                    Title = x.Title,
+                    Username = x.User.Username,
+                    CreatedAt = x.CreatedAt
+                }).ToList()));
+            
 
             CreateMap<ReadCategoryDto, Category>();
-            //.ForMember(
-            //dto => dto.Posts,
-            //ent => ent.MapFrom(x =>
-            //x.Posts.Select(y => y.Id).ToList()
-            //));
-
+            
 
         }
     }

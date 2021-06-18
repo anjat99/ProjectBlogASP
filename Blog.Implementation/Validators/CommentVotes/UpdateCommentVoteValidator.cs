@@ -14,8 +14,7 @@ namespace Blog.Implementation.Validators.CommentVotes
             RuleFor(x => x.CommentId).NotEmpty();
 
             RuleFor(x => x.Mark)
-                .ExclusiveBetween(1, 5)
-                .WithMessage("Mark must be in the range between 1 and 5");
+                 .NotEmpty().GreaterThanOrEqualTo(1).WithMessage("Value of vote has to be greater or equal than 1").LessThanOrEqualTo(5).WithMessage("Value of vote has to be less or equal than 5");
         }
     }
 }
